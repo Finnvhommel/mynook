@@ -15,7 +15,7 @@ const faqItems: FAQItem[] = [
   },
   {
     id: 2,
-    question: 'Is MyNook echt gratis?',
+    question: 'Is MyNook gratis?',
     answer: 'De huidige testversie is volledig gratis. We geloven in digitale rust voor iedereen.',
   },
   {

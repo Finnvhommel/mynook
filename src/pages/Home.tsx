@@ -17,7 +17,7 @@ function Home({ onNavigate }: HomeProps) {
       <Features />
       <FAQ />
       <Contact />
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   );
 }

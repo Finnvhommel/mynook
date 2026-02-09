@@ -1,36 +1,26 @@
 function Hero() {
   return (
-    <section className="flex flex-col items-center px-6 pt-32 pb-8 relative">
+    <section className="flex flex-col items-center justify-center px-6 py-24 md:py-32 relative text-center">
       
-      <div className="max-w-4xl w-full flex flex-col items-start text-left space-y-4">
+      <div className="max-w-4xl w-full flex flex-col items-center space-y-8">
         
-        {/* De 'Nook' definitie blok */}
-        <div className="space-y-6">
-          
-          {/* Titel + Uitspraak */}
-          <div className="flex flex-wrap items-baseline gap-4 border-b border-ink pb-4 pr-12 w-fit">
-            <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl font-bold text-ink tracking-tight">
-              nook
-            </h1>
-            {/* AANGEPAST: text-2xl/3xl veranderd naar text-lg (veel kleiner) */}
-            <p className="font-serif italic text-lg text-ink/60">
-              [noek] zn.
-            </p>
-          </div>
+        {/* De focus-zin in Racing Sans One */}
+        <div className="animate-fade-in">
+          <h2 className="font-['Racing_Sans_One'] text-4xl md:text-6xl lg:text-7xl text-ink leading-tight tracking-wide">
+            Herover je focus. <br /> 
+            Ontdek je Nook.
+          </h2>
+        </div>
 
-          {/* De betekenis */}
-          <p className="font-serif text-xl md:text-2xl text-ink/80 leading-relaxed max-w-2xl">
-            een kleine ruimte of hoekje, met name een die rust en geborgenheid biedt.
+        {/* De sub-tekst/tagline */}
+        <div className="max-w-2xl">
+          <p className="font-racing text-lg md:text-xl text-ink/70 leading-relaxed">
+            De gesloten Android test is nu live! Klik hieronder om een downloadlink te ontvangen of schrijf je in voor de wachtlijst op iOS.
           </p>
         </div>
 
-       {/* Tagline */}
-        <div className="pt-8">
-          <p className="font-racing text-xl md:text-2xl text-ink/80 leading-relaxed tracking-wide">
-            De android test is nu live! Klik hieronder om je aan te melden of schrijf je in voor de wachtlijst op iOS.
-          </p>
-        </div>
-
+        {/* Hier kun je eventueel je Call-to-Action knoppen plaatsen */}
+        
       </div>
     </section>
   );
