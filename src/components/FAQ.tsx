@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus } from 'lucide-react'; // Minus is niet meer nodig, we draaien de Plus
 
 interface FAQItem {
   id: number;
@@ -70,28 +70,29 @@ function FAQ() {
               >
                 <button
                   onClick={() => toggleOpen(item.id)}
-                  className="w-full py-6 flex items-start justify-between gap-4 hover:text-gold transition-colors duration-200 text-left group"
+                  className="w-full py-6 flex items-start justify-between gap-4 group text-left"
                 >
-                  <span className={`font-sans font-medium text-lg transition-colors duration-200 ${isOpen ? 'text-gold' : 'text-ink group-hover:text-gold'}`}>
+                  <span className={`font-sans font-medium text-lg transition-colors duration-300 ${isOpen ? 'text-gold' : 'text-ink group-hover:text-gold'}`}>
                     {item.question}
                   </span>
                   
-                  {/* Icoon met rotatie-animatie */}
-                  <div className={`flex-shrink-0 text-gold mt-1 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
-                    {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                  {/* AANPASSING: Het icoon draait nu 45 graden (rotate-45) in plaats van te wisselen. 
+                      Dit is de 'Apple' touch. */}
+                  <div className={`flex-shrink-0 text-gold mt-1 transition-transform duration-300 ease-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
+                    <Plus className="w-5 h-5" />
                   </div>
                 </button>
 
-                {/* DE ANIMATIE MAGIC */}
+                {/* De Grid Animatie */}
                 <div 
                   className={`
-                    grid transition-all duration-300 ease-in-out
-                    ${isOpen ? 'grid-rows-[1fr] opacity-100 pb-6' : 'grid-rows-[0fr] opacity-0 pb-0'}
+                    grid transition-[grid-template-rows] duration-300 ease-out
+                    ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}
                   `}
                 >
                   <div className="overflow-hidden">
-                    {/* Inhoud container */}
-                    <div className="font-sans text-ink/70 leading-relaxed">
+                    {/* Padding zit nu hier binnenin voor de soepelste animatie zonder schokken */}
+                    <div className="font-sans text-ink/70 leading-relaxed pb-6">
                       {item.answer}
                     </div>
                   </div>

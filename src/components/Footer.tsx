@@ -5,7 +5,7 @@ function Footer() {
     <footer className="py-12 px-6 border-t border-ink/10 bg-paper">
       <div className="max-w-6xl mx-auto">
         
-        {/* Bovenste deel: De Definitie (Nu bovenin de footer) */}
+        {/* Bovenste deel: De Definitie */}
         <div className="flex flex-col items-start text-left opacity-80 hover:opacity-100 transition-opacity mb-16">
           <div className="flex flex-wrap items-baseline gap-4 border-b border-ink/20 pb-2 mb-4 w-fit">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink tracking-tight">
@@ -21,12 +21,18 @@ function Footer() {
           </p>
         </div>
 
-        {/* Onderste deel: Copyright & Socials (Met een subtiele scheidingslijn) */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-ink/5">
+        {/* Onderste deel: Copyright, KVK & Socials */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-ink/5">
           
-          <p className="font-sans text-ink/40 text-xs tracking-wider uppercase">
-            © 2026 MyNookApp
-          </p>
+          {/* AANPASSING: Copyright + KVK Nummer 
+              - Op mobiel (flex-col) staan ze onder elkaar.
+              - Op desktop (md:flex-row) staan ze naast elkaar met een puntje ertussen.
+          */}
+          <div className="flex flex-col md:flex-row items-center gap-2 font-sans text-ink/40 text-xs tracking-wider uppercase">
+            <span>© 2026 MyNookApp</span>
+            <span className="hidden md:block text-ink/20">•</span>
+            <span>KVK 91644836</span>
+          </div>
 
           <div className="flex gap-6">
             <a

@@ -4,29 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes float-dust {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.5;
-  }
-  90% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translate(var(--tx), var(--ty)) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.floating-dust {
-  position: fixed;
-  pointer-events: none;
-  will-change: transform;
-  animation: float-dust var(--duration) linear infinite;
-}
+/* -------------------------------------------------------------------------- */
+/* 1. TEXTURES & UTILS                                                        */
+/* -------------------------------------------------------------------------- */
 
 @layer utilities {
   .text-outline-paper {
@@ -37,3 +17,77 @@
       -0.5px -0.5px 0 #FDFCF8;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* 2. CUSTOM SELECTION (GOUD)                                                 */
+/* -------------------------------------------------------------------------- */
+
+::selection {
+  background-color: #D4AF37;
+  color: white;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. FLOATING ANIMATIONS (Telefoons)                                         */
+/* -------------------------------------------------------------------------- */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 3s infinite;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. BLUR REVEAL (Tip 2 - Voor de titel)                                     */
+/* -------------------------------------------------------------------------- */
+
+@keyframes blur-in {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.animate-blur-in {
+  /* 'will-change' helpt de browser de blur soepel te renderen */
+  will-change: transform, opacity, filter;
+  animation: blur-in 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. OVERIGE ANIMATIES (Voor knoppen etc.)                                   */
+/* -------------------------------------------------------------------------- */
+
+/* Deze ontbrak waarschijnlijk, waardoor je knoppen niet verschenen */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
