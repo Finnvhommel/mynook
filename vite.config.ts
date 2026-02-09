@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   // VOEG DIT TOE: Vervang 'mynook' door de exacte naam van je GitHub repo
-  base: '/mynook/', 
+  base: '/', 
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
