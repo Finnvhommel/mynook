@@ -52,15 +52,28 @@ export default function Mission({ onNavigate }: MissionProps) {
 
           <div>
             <h2 className="text-3xl font-bold mb-4 font-serif">Waarom we dit doen</h2>
-            <p className="text-lg text-ink/70 leading-relaxed mb-6">
-              Veel mensen zitten te vaak en te lang op hun telefoon, terwijl ze die tijd liever 
-              anders zouden besteden. Door middel van slimme NFC-technologie maken wij het makkelijker 
-              om die telefoon écht even weg te leggen.
+            <p className="text-lg text-ink/70 leading-relaxed mb-12">
+              Ik merkte zelf dat ik en veel mensen om me heen tijdens het studeren vaak
+              moeite hebben om de focus echt te houden op wat op dat moment belangrijk is:
+              studeren. Om mezelf en mijn medestudenten een handje te helpen heb ik MyNook
+              ontwikkeld.
             </p>
             
-            <p className="font-racing text-2xl text-ink/80 mt-8">
-              Minder schermtijd, meer leef-tijd.
-            </p>
+            {/* AANGEPAST: De definitie in exact dezelfde stijl als de homescreen footer */}
+            <div className="border-t border-ink/10 pt-12 flex flex-col items-start text-left opacity-80">
+              <div className="flex flex-wrap items-baseline gap-4 border-b border-ink/20 pb-2 mb-4 w-fit">
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink tracking-tight">
+                  nook
+                </h2>
+                <p className="font-serif italic text-sm text-ink/60">
+                  [noek] zn.
+                </p>
+              </div>
+              
+              <p className="font-serif text-lg text-ink/80 leading-relaxed max-w-xl">
+                een kleine ruimte of hoekje, met name een die rust en geborgenheid biedt.
+              </p>
+            </div>
           </div>
         </div>
       </div>
