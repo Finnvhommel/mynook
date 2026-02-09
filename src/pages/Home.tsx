@@ -1,6 +1,6 @@
 import Hero from '../components/Hero';
-import Availability from '../components/Availability';
 import Features from '../components/Features';
+import Showcase from '../components/Showcase';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -12,9 +12,11 @@ interface HomeProps {
 function Home({ onNavigate }: HomeProps) {
   return (
     <div className="bg-paper min-h-screen relative overflow-hidden">
+      {/* De Hero bevat intern al de Availability knoppen */}
       <Hero />
-      <Availability />
+      
       <Features />
+      <Showcase />
       <FAQ />
       <Contact />
       <Footer />
