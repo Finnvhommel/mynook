@@ -4,7 +4,7 @@ import { Plus, Minus } from 'lucide-react';
 interface FAQItem {
   id: number;
   question: string;
-  answer: string;
+  answer: string | React.ReactNode;
 }
 
 const faqItems: FAQItem[] = [
@@ -23,6 +23,26 @@ const faqItems: FAQItem[] = [
     question: 'Wat gebeurt er met mijn data?',
     answer: 'Niets. Je data is van jou. Alles blijft 100% lokaal op je eigen apparaat.',
   },
+  {
+    id: 4,
+    question: 'Wat is een Nook?',
+    answer: (
+      <div className="flex flex-col items-start text-left opacity-90 mt-2">
+        <div className="flex flex-wrap items-baseline gap-3 border-b border-ink/20 pb-2 mb-3 w-fit">
+          <h2 className="font-serif text-3xl font-bold text-ink tracking-tight">
+            nook
+          </h2>
+          <p className="font-serif italic text-sm text-ink/60">
+            [noek] zn.
+          </p>
+        </div>
+        
+        <p className="font-serif text-lg text-ink/80 leading-relaxed max-w-xl">
+          een kleine ruimte of hoekje, met name een die rust en geborgenheid biedt.
+        </p>
+      </div>
+    ),
+  },
 ];
 
 function FAQ() {
@@ -40,36 +60,46 @@ function FAQ() {
         </h2>
 
         <div className="space-y-0">
-          {faqItems.map((item, index) => (
-            <div
-              key={item.id}
-              className={`${index !== faqItems.length - 1 ? 'border-b border-ink/10' : ''}`}
-            >
-              <button
-                onClick={() => toggleOpen(item.id)}
-                className="w-full py-6 flex items-start justify-between gap-4 hover:text-gold transition-colors duration-200 text-left group"
-              >
-                <span className="font-sans font-medium text-lg text-ink group-hover:text-gold transition-colors duration-200">
-                  {item.question}
-                </span>
-                <div className="flex-shrink-0 text-gold mt-1">
-                  {openId === item.id ? (
-                    <Minus className="w-5 h-5" />
-                  ) : (
-                    <Plus className="w-5 h-5" />
-                  )}
-                </div>
-              </button>
+          {faqItems.map((item, index) => {
+            const isOpen = openId === item.id;
 
-              {openId === item.id && (
-                <div className="pb-6 animate-in fade-in duration-200">
-                  <p className="font-sans text-ink/70 leading-relaxed">
-                    {item.answer}
-                  </p>
+            return (
+              <div
+                key={item.id}
+                className={`${index !== faqItems.length - 1 ? 'border-b border-ink/10' : ''}`}
+              >
+                <button
+                  onClick={() => toggleOpen(item.id)}
+                  className="w-full py-6 flex items-start justify-between gap-4 hover:text-gold transition-colors duration-200 text-left group"
+                >
+                  <span className={`font-sans font-medium text-lg transition-colors duration-200 ${isOpen ? 'text-gold' : 'text-ink group-hover:text-gold'}`}>
+                    {item.question}
+                  </span>
+                  
+                  {/* Icoon met rotatie-animatie */}
+                  <div className={`flex-shrink-0 text-gold mt-1 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                    {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                  </div>
+                </button>
+
+                {/* DE ANIMATIE MAGIC */}
+                <div 
+                  className={`
+                    grid transition-all duration-300 ease-in-out
+                    ${isOpen ? 'grid-rows-[1fr] opacity-100 pb-6' : 'grid-rows-[0fr] opacity-0 pb-0'}
+                  `}
+                >
+                  <div className="overflow-hidden">
+                    {/* Inhoud container */}
+                    <div className="font-sans text-ink/70 leading-relaxed">
+                      {item.answer}
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
