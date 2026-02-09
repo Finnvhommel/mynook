@@ -5,10 +5,26 @@ function Footer() {
     <footer className="py-12 px-6 border-t border-ink/10 bg-paper">
       <div className="max-w-6xl mx-auto">
         
-        {/* Bovenste deel: Alleen Copyright & Socials */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+        {/* Bovenste deel: De Definitie (Nu bovenin de footer) */}
+        <div className="flex flex-col items-start text-left opacity-80 hover:opacity-100 transition-opacity mb-16">
+          <div className="flex flex-wrap items-baseline gap-4 border-b border-ink/20 pb-2 mb-4 w-fit">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              nook
+            </h2>
+            <p className="font-serif italic text-sm text-ink/60">
+              [noek] zn.
+            </p>
+          </div>
           
-          <p className="font-sans text-ink/60 text-sm">
+          <p className="font-serif text-lg text-ink/80 leading-relaxed max-w-xl">
+            een kleine ruimte of hoekje, met name een die rust en geborgenheid biedt.
+          </p>
+        </div>
+
+        {/* Onderste deel: Copyright & Socials (Met een subtiele scheidingslijn) */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-ink/5">
+          
+          <p className="font-sans text-ink/40 text-xs tracking-wider uppercase">
             © 2026 MyNookApp
           </p>
 
@@ -32,22 +48,6 @@ function Footer() {
               <Linkedin className="w-5 h-5" />
             </a>
           </div>
-        </div>
-
-        {/* Onderste deel: De Definitie (Links uitgelijnd en Serif) */}
-        <div className="border-t border-ink/10 pt-12 flex flex-col items-start text-left opacity-80 hover:opacity-100 transition-opacity">
-          <div className="flex flex-wrap items-baseline gap-4 border-b border-ink/20 pb-2 mb-4 w-fit">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-ink tracking-tight">
-              nook
-            </h2>
-            <p className="font-serif italic text-sm text-ink/60">
-              [noek] zn.
-            </p>
-          </div>
-          
-          <p className="font-serif text-lg text-ink/80 leading-relaxed max-w-xl">
-            een kleine ruimte of hoekje, met name een die rust en geborgenheid biedt.
-          </p>
         </div>
 
       </div>
