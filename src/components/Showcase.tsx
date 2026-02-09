@@ -1,14 +1,19 @@
 function Showcase() {
   return (
-    <section className="py-12 bg-paper overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4">
+    // AANPASSING: py-12 verlaagd naar py-6 om verticale witruimte te halveren
+    <section className="py-6 bg-paper overflow-hidden">
+      
+      {/* AANPASSING: max-w-5xl verhoogd naar max-w-7xl voor meer ruimte op desktop.
+          px-4 weggehaald op mobiel (px-0) zodat ze de rand kunnen raken. */}
+      <div className="max-w-7xl mx-auto px-0 md:px-4">
         
-        {/* AANPASSING: flex-row zorgt dat ze ALTIJD naast elkaar staan. 
-            gap-2 op mobiel houdt ze dicht bij elkaar. */}
-        <div className="flex flex-row justify-center items-center gap-2 md:gap-12">
+        <div className="flex flex-row justify-center items-center gap-2 md:gap-16">
           
-          {/* Linker afbeelding: w-40 op mobiel (voldoende voor 2 naast elkaar), w-80 op desktop */}
-          <div className="relative w-40 md:w-80 transform -rotate-2 hover:rotate-0 transition-transform duration-500 ease-in-out z-10">
+          {/* Linker afbeelding */}
+          {/* AANPASSING: w-40 vervangen door w-[46vw]. 
+              Dit betekent: pak 46% van de schermbreedte. 2x46% + gap vult het hele scherm.
+              Desktop: md:w-96 (was w-80), dus flink groter. */}
+          <div className="relative w-[46vw] md:w-96 transform -rotate-2 hover:rotate-0 transition-transform duration-500 ease-in-out z-10">
             <img 
               src="/mockup-timer.png" 
               alt="MyNook App Timer" 
@@ -16,8 +21,9 @@ function Showcase() {
             />
           </div>
 
-          {/* Rechter afbeelding: mt-8 voor de verspringing, ook op mobiel */}
-          <div className="relative w-40 md:w-80 transform rotate-2 hover:rotate-0 transition-transform duration-500 ease-in-out mt-8">
+          {/* Rechter afbeelding */}
+          {/* Ook hier w-[46vw] en md:w-96 */}
+          <div className="relative w-[46vw] md:w-96 transform rotate-2 hover:rotate-0 transition-transform duration-500 ease-in-out mt-6 md:mt-12">
             <img 
               src="/mockup-history.png" 
               alt="MyNook App Geschiedenis" 

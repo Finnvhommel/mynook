@@ -20,14 +20,18 @@ function App() {
   };
 
   return (
-    <>
+    // We voegen bg-paper toe aan de wrapper om te zorgen dat de hele site 
+    // dezelfde crème-kleur heeft, ook achter de transparante navbar.
+    <div className="bg-paper min-h-screen">
       <Navbar onNavigate={handleNavigate} />
-      <main className="pt-20"> {/* Iets meer ruimte voor de ademruimte van je Hero */}
+      
+      {/* AANPASSING: pt-20 is verwijderd. De content begint nu bovenaan het scherm. */}
+      <main>
         {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'privacy' && <Privacy onNavigate={handleNavigate} />}
         {currentPage === 'mission' && <Mission onNavigate={handleNavigate} />}
       </main>
-    </>
+    </div>
   );
 }
 

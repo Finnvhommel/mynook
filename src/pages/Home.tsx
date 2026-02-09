@@ -11,8 +11,10 @@ interface HomeProps {
 
 function Home({ onNavigate }: HomeProps) {
   return (
+    // AANPASSING: We zorgen dat de achtergrond 'bg-paper' is en 
+    // we halen eventuele 'pt-16' of 'border-t' weg die een balk kan veroorzaken.
     <div className="bg-paper min-h-screen relative overflow-hidden">
-      {/* De Hero bevat intern al de Availability knoppen */}
+      {/* Geen extra div of padding hier boven de Hero */}
       <Hero />
       
       <Features />
