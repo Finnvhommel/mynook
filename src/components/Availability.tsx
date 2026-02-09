@@ -2,9 +2,9 @@ import { Smartphone, Clock } from 'lucide-react';
 
 function Availability() {
   return (
-    <section className="py-16 px-4 md:px-6">
+    // AANPASSING: py-16 veranderd naar py-6 voor veel minder witruimte
+    <section className="py-6 px-4 md:px-6">
       <div className="max-w-4xl mx-auto">
-        {/* AANPASSING: flex-row staat nu altijd aan. gap is kleiner op mobiel (gap-3) */}
         <div className="flex flex-row gap-3 md:gap-6 justify-center items-stretch">
           
           {/* ANDROID KNOP */}
@@ -12,7 +12,6 @@ function Availability() {
             href="https://tally.so/r/Pd59vd"
             target="_blank"
             rel="noopener noreferrer"
-            // AANPASSING: px-4 op mobiel ipv 8 om ruimte te besparen
             className="flex-1 bg-gold text-white px-4 md:px-8 py-6 rounded-lg hover:bg-gold/90 transition-all duration-300 flex flex-col items-center justify-center gap-4 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             <div className="flex flex-col items-center gap-2 text-center">
