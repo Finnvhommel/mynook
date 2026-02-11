@@ -1,20 +1,17 @@
 import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface PrivacyProps {
-  onNavigate: (page: string) => void;
-}
-
-function Privacy({ onNavigate }: PrivacyProps) {
+export default function Privacy() {
   return (
     <div className="bg-paper min-h-screen">
       <div className="max-w-4xl mx-auto px-6 py-20">
-        <button
-          onClick={() => onNavigate('home')}
-          className="flex items-center gap-2 text-ink/60 hover:text-gold transition-colors duration-200 mb-12 font-sans"
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-ink/60 hover:text-gold transition-colors duration-200 mb-12 font-sans w-fit"
         >
           <ArrowLeft className="w-5 h-5" />
           <span>Terug naar Home</span>
-        </button>
+        </Link>
 
         <h1 className="font-serif text-5xl md:text-6xl font-bold text-ink mb-4">
           Privacybeleid
@@ -103,5 +100,3 @@ function Privacy({ onNavigate }: PrivacyProps) {
     </div>
   );
 }
-
-export default Privacy;

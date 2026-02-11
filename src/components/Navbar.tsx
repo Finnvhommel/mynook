@@ -1,27 +1,19 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom'; // Gebruik Link ipv button
 import { Menu, X } from 'lucide-react';
 
-interface NavbarProps {
-  onNavigate: (page: string) => void;
-}
-
-export default function Navbar({ onNavigate }: NavbarProps) {
+export default function Navbar() { // Geen props meer nodig!
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation(); // Om te zien waar we nu zijn
 
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'mission', label: 'Onze Missie' },
-    { id: 'privacy', label: 'Privacy' },
+    { path: '/', label: 'Home' },
+    { path: '/mission', label: 'Onze Missie' },
+    { path: '/privacy', label: 'Privacy' },
   ];
-
-  const handleLinkClick = (page: string) => {
-    onNavigate(page);
-    setIsOpen(false);
-  };
 
   return (
     <>
-      {/* 1. De click-away overlay */}
       {isOpen && (
         <div 
           className="fixed inset-0 z-40 bg-transparent" 
@@ -29,26 +21,22 @@ export default function Navbar({ onNavigate }: NavbarProps) {
         />
       )}
 
-      {/* De Navigatiebalk (Glass Effect) */}
       <nav className={`
         fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300
         ${isOpen ? 'bg-paper' : 'bg-paper/80 backdrop-blur-md border-b border-ink/5'}
       `}>
         <div className="max-w-7xl mx-auto flex justify-between items-center relative">
           
-          {/* Logo */}
-          <button 
-            onClick={() => handleLinkClick('home')}
-            className="font-['Racing_Sans_One'] text-2xl text-ink tracking-wide relative z-50"
+          {/* Logo is nu een Link */}
+          <Link 
+            to="/"
+            onClick={() => setIsOpen(false)}
+            className="font-['Racing_Sans_One'] text-2xl text-ink tracking-wide relative z-50 transition-transform hover:scale-105"
           >
             MyNook
-          </button>
+          </Link>
 
-          {/* AANPASSING: De Menu Toggle Knop in 'Glass' stijl 
-             - bg-paper/50: Half transparant
-             - backdrop-blur-md: Blur effect in de knop zelf
-             - border & shadow: Zorgt dat hij 'op' de balk ligt
-          */}
+          {/* Toggle Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className={`
@@ -73,24 +61,28 @@ export default function Navbar({ onNavigate }: NavbarProps) {
           `}>
             
             {navLinks.map((link, index) => (
-              <button 
-                key={link.id}
-                onClick={() => handleLinkClick(link.id)}
+              <Link 
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
                 style={{ transitionDelay: `${isOpen ? index * 100 + 100 : 0}ms` }}
                 className={`
-                  font-['Racing_Sans_One'] text-4xl text-ink hover:text-gold transition-all duration-500
+                  font-['Racing_Sans_One'] text-4xl hover:text-gold transition-all duration-500
+                  ${location.pathname === link.path ? 'text-gold' : 'text-ink'}
                   ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
                 `}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
 
-            {/* Android Knop */}
-            <a
+            {/* Android & iOS knoppen blijven hetzelfde als in je vorige versie... */}
+            {/* (Voeg die hier toe zoals in de vorige stap) */}
+             <a
               href="https://tally.so/r/Pd59vd"
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="Android Beta Click (Navbar)"
               style={{ transitionDelay: `${isOpen ? 400 : 0}ms` }}
               className={`
                 mt-4 px-8 py-3 bg-gold text-white rounded-full 
@@ -103,11 +95,11 @@ export default function Navbar({ onNavigate }: NavbarProps) {
               Android Beta
             </a>
 
-            {/* iOS Knop */}
             <a
               href="https://tally.so/r/682KAO"
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="iOS Waitlist Click (Navbar)"
               style={{ transitionDelay: `${isOpen ? 500 : 0}ms` }}
               className={`
                 px-8 py-3 bg-ink text-white rounded-full 
