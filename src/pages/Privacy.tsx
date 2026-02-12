@@ -18,7 +18,7 @@ export default function Privacy() {
         </h1>
 
         <p className="font-sans text-ink/60 mb-12 text-sm">
-          Laatst bijgewerkt: 8 februari 2026
+          Laatst bijgewerkt: 12 februari 2026
         </p>
 
         <div className="font-sans text-ink/70 leading-relaxed space-y-8">
@@ -31,14 +31,22 @@ export default function Privacy() {
               1. Gegevensverzameling en Gebruik
             </h2>
             <p className="mb-3">
-              MyNook is ontworpen om volledig lokaal op uw apparaat te werken.
+              MyNook is ontworpen om uw privacy te waarborgen. De kernfunctionaliteit werkt lokaal, maar wij verzamelen beperkte anonieme gegevens om de app te verbeteren.
             </p>
-            <ul className="space-y-3 ml-4">
+            <ul className="space-y-4 ml-4">
               <li>
-                <strong>Persoonlijke gegevens:</strong> Wij verzamelen, bewaren of verzenden geen persoonlijk identificeerbare informatie (zoals namen, e-mailadressen of telefoonnummers) naar externe servers.
+                <strong>Persoonlijke gegevens:</strong> Wij verzamelen, bewaren of verzenden geen persoonlijk identificeerbare informatie (zoals namen, e-mailadressen of telefoonnummers).
               </li>
               <li>
-                <strong>App-gebruiksstatistieken:</strong> Informatie over welke apps u blokkeert of hoe lang u gefocust bent, wordt uitsluitend lokaal op uw apparaat opgeslagen in de beveiligde opslag van de app. Wij hebben geen toegang tot deze gegevens.
+                <strong>App-gebruiksstatistieken (Lokaal):</strong> Gedetailleerde informatie over welke specifieke apps u blokkeert, wordt uitsluitend lokaal op uw apparaat opgeslagen.
+              </li>
+              <li>
+                <strong>Anonieme Prestatiegegevens (Cloud):</strong> Om inzicht te krijgen in de stabiliteit en het gebruik van de app, verzenden wij na een sessie automatisch een anoniem logbestand naar onze database. Deze gegevens bevatten:
+                <ul className="mt-2 ml-6 list-disc space-y-1 text-sm">
+                  <li>Een willekeurig gegenereerd anoniem ID (niet te herleiden naar uw persoon).</li>
+                  <li>De naam en duur (in minuten) van uw focussessie.</li>
+                  <li>Technische specificaties (Toesteltype, Android-versie en App-versie) voor het oplossen van bugs.</li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -71,7 +79,7 @@ export default function Privacy() {
               3. Delen van Gegevens met Derden
             </h2>
             <p>
-              Wij verkopen, verhandelen of delen geen gegevens met derden. Er is geen advertentienetwerk of analyse-software van derden in de app aanwezig die uw gedrag volgt.
+              Wij verkopen, verhandelen of delen geen gegevens met derden. Er is geen advertentienetwerk of analyse-software van derden in de app aanwezig die uw gedrag volgt voor commerciële doeleinden. De anonieme prestatiegegevens worden uitsluitend door het ontwikkelingsteam van MyNook gebruikt.
             </p>
           </div>
 
