@@ -33,7 +33,7 @@ export default function Privacy() {
             <p className="mb-3">
               MyNook is ontworpen om uw focus te verbeteren met respect voor uw privacy. Wij verzamelen de volgende gegevens:
             </p>
-            <ul className="space-y-4 ml-4">
+            <ul className="space-y-4 ml-4 list-disc marker:text-gold">
               <li>
                 <strong>Accountgegevens:</strong> Wanneer u ervoor kiest om een back-up van uw gegevens te maken via Google Sign-in, verzamelen wij uw e-mailadres en gebruikersnaam. Als u de app anoniem gebruikt, slaan wij alleen een unieke gebruikersnaam en een willekeurig gegenereerd ID op.
               </li>
@@ -56,7 +56,7 @@ export default function Privacy() {
             <p className="mb-3">
               Om de kernfunctionaliteit te bieden, gebruikt MyNook de volgende machtigingen:
             </p>
-            <ul className="space-y-3 ml-4">
+            <ul className="space-y-3 ml-4 list-disc marker:text-gold">
               <li>
                 <strong>Toegankelijkheidsservice (Accessibility Service):</strong> Uitsluitend om te detecteren welke app op de voorgrond draait, om afleidende apps te kunnen blokkeren. Wij verzamelen geen tekstinvoer of scherminhoud.
               </li>
@@ -79,14 +79,45 @@ export default function Privacy() {
             <p className="mb-3">
               Wij geloven dat u de volledige controle moet hebben over uw gegevens.
             </p>
-            <ul className="space-y-3 ml-4">
-              <li>
-                <strong>In-app verwijdering:</strong> U kunt op elk moment via de instellingen in de app uw volledige account en alle bijbehorende sessiegeschiedenis definitief verwijderen.
-              </li>
-              <li>
-                <strong>Extern verzoek:</strong> Indien u de app niet meer heeft geïnstalleerd en uw gegevens wilt laten verwijderen, kunt u een verzoek indienen via <a href="mailto:finnvhommel@gmail.com" className="text-gold hover:underline">finnvhommel@gmail.com</a>. Wij zullen uw gegevens dan binnen 30 dagen permanent uit onze systemen wissen.
-              </li>
-            </ul>
+            <div className="space-y-6">
+              <div>
+                <strong>In-app verwijdering:</strong>
+                <p className="mt-1">
+                  U kunt op elk moment via de instellingen in de app uw volledige account en/of alle bijbehorende sessiegeschiedenis definitief verwijderen.
+                </p>
+              </div>
+
+              <div>
+                <strong>Verzoek per e-mail (Stappenplan):</strong>
+                <p className="mt-1 mb-3">
+                  Heeft u de app niet meer geïnstalleerd, of regelt u dit liever buiten de app om? Stuur dan een e-mail naar <a href="mailto:finnvhommel@gmail.com" className="text-gold hover:underline font-medium">finnvhommel@gmail.com</a> met als onderwerp "Verzoek Gegevensverwijdering MyNook".
+                </p>
+                <p className="mb-3 font-medium">Neem de volgende 2 stappen op in uw e-mail:</p>
+                
+                <div className="bg-ink/5 p-6 rounded-xl border border-ink/10 space-y-4">
+                  <div>
+                    <strong className="text-ink">Stap 1: Identificatie</strong>
+                    <p className="text-sm mt-1 mb-2">Geef aan om welk account het gaat, zodat wij u in ons systeem kunnen vinden. Vermeld in de mail:</p>
+                    <ul className="list-disc ml-5 text-sm space-y-1">
+                      <li>Uw exacte MyNook-gebruikersnaam.</li>
+                      <li>Indien u Google Back-up gebruikte: Het e-mailadres van het gekoppelde Google-account.</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <strong className="text-ink">Stap 2: Uw keuze</strong>
+                    <p className="text-sm mt-1 mb-2">Geef duidelijk aan wat u wilt dat wij verwijderen. Kies uit één van de volgende opties:</p>
+                    <ul className="list-disc ml-5 text-sm space-y-2">
+                      <li><strong>Optie A (Alles verwijderen):</strong> Wis mijn account én al mijn opgeslagen data (zoals sessiegeschiedenis) definitief.</li>
+                      <li><strong>Optie B (Alleen data verwijderen):</strong> Wis al mijn opgeslagen data (zoals sessiegeschiedenis), maar behoud mijn account en gebruikersnaam.</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className="mt-4 italic text-sm">
+                  Wij zullen uw verzoek binnen 30 dagen verwerken en u een bevestiging sturen zodra de gegevens permanent uit onze systemen zijn gewist.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div>
@@ -113,7 +144,7 @@ export default function Privacy() {
             </h2>
             <p>
               Bij vragen of verzoeken omtrent uw privacy kunt u contact met ons opnemen via:{' '}
-              <a href="mailto:finnvhommel@gmail.com" className="text-gold hover:underline">
+              <a href="mailto:finnvhommel@gmail.com" className="text-gold hover:underline font-medium">
                 finnvhommel@gmail.com
               </a>
             </p>
